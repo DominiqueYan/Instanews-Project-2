@@ -1,0 +1,14 @@
+//mixin for tablet breakpoint
+//mixin for desktop breakpoint
+
+@mixin desktop {
+    @media (min-width: $desktop-width) {
+      @content;
+    }
+  }
+
+@mixin desktop {
+  @media (min-width: $tablet-width) { 
+    @content;
+    }
+  }
