@@ -1,41 +1,32 @@
 $(function () {
-    console.log("Welcome to Instanews!");
-});
+    $('.selector').on('change', function() {
+        let section = $(this).val();
+        let link, imglink, abstract,html;
+        $('header').addClass("second-header");
+        $('.content').before('<div class="loading"><img src="assets/images/ajax-loader.gif"></div>');
 
-// import { url } from "inspector";
+        $.ajax({
+            method: 'GET',
+            url: 'https://api.nytimes.com/svc/topstories/v2/' + section + '.json?api-key=VsdoBq4dhdB6ezdvVKAkPpWGzWXMKG35',
+            datatype: 'json'
+        }).done(function(data) {
+            let results = data.results.slice(0,12)
+            
+            $.each(results,function(key,value){
+                link=value.url;
+                abstract=value.abstract;
+                if(value.multimedia[4]!==undefined){
+                imglink=value.multimedia[4].url;
+                html='<li class="items"><div><a target="_blank" href='+link+'><img src='+imglink+'><p>'+abstract+'</p></div></a></li>';
+                $(".newslist").append(html);}
+               
+            });
+    
+        }).fail(function(data){
+            alert('Please Select Another Section');
 
-//Problem: Retrieve content from the NYT Top Stories API and add it to our site.
-//If we don't get a successful response, let the user know
-
-//1. Listen for the selct menu to change (watching value)
-    //1a. Show the loader and clear out old stories
-    //1b. If select value is "" dp mptjomg amd return from the function imediately!
-    //1c. Show a loader and clear out old stories
-//2. Send a request to the NYT API for data based on the value of the select menu
-//3. If successful, parse the data and decide what parts we want to append to our DOM
-//4. Append that stuff to the DOM
-//5. If unsuccessful, append and show a helpful to the user in the UI
-//6. Hide the loader again
-
-// the same as documemt ready()
-$(function(){
-    $('selection').on('change', function() {
-    const section = $(this).val();
-    //console.log(section);
-
-    //if value is empty, return
-    //show loader
-    //clear stories
-    //make out ajax request
-    $.ajax({
-        method: 'GET',
-        url: 'https://api.nytimes.com/svc/topstories/v2/' + section + '.json?',//sign up for api key in nyt and add
-        datatype: 'json'
-    }).done(function(data) {    //response is an object
-        //do stuff here if it doesn't work out
-
-    }).always(function(){
-        //hide the loader
-    })
-});
+        }).always(function(data){
+            $('.loading').remove()
+        });
+    });
 });

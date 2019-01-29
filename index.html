@@ -2,17 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta> charset= "uft-8">
+    <meta charset="uft-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Project 2</title>
     <link rel="stylesheet" type="text/css" href="build/css/style.min.css">
     <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body id="home">
-
-    <h1>Instanews</h1>
-    <p>hello</p>
-
+    <header class="header-front">
+            <img src="assets/images/nyt-logo.svg" alt="Logo">
+        <form>
+            <p>Choose a section:</p>
+            <select class="selector">
+                <option value="">Selections...</option>
+                <option value="arts">Arts</option>
+                <option value="business">Business</option>
+                <option value="sports">Sports</option>
+            </select>
+        </form>
+    </header>
+    <div class= "content"><ul class="newslist"></ul></div>
+<script src="jquery-3.3.1.min.js"></script>
 <script src="build/js/script.min.js"></script>
 </body>
 </html>

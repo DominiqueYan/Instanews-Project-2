@@ -1,7 +1,19 @@
 body {
-    background: black
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh
 }
 
-h1, p {
+p {
     color: white
+}
+
+@include tablet {
+    
+}
+
+@include desktop {
+
 }
