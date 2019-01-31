@@ -11,6 +11,7 @@
     background-position: 50%
 }
 
+
 @include tablet {
     .content ul {
         grid-template-columns: 1fr 1fr;

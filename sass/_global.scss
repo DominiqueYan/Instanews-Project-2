@@ -3,11 +3,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh
+    flex-direction:column;
 }
 
 p {
-    color: white
+    color: white;
+}
+
+.newslist{
+    padding-top:115px;
 }
 
 @include tablet {

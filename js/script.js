@@ -5,6 +5,8 @@ $(function () {
         $('header').addClass("second-header");
         $('.content').before('<div class="loading"><img src="assets/images/ajax-loader.gif"></div>');
 
+
+        $(".newslist").empty();
         $.ajax({
             method: 'GET',
             url: 'https://api.nytimes.com/svc/topstories/v2/' + section + '.json?api-key=VsdoBq4dhdB6ezdvVKAkPpWGzWXMKG35',

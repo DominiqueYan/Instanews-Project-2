@@ -2,8 +2,14 @@ select {
     background: white;
 }
 
+img{
+    max-width: 80px;
+}
+
 .second-header {
-    position: absolute;
+    display: flex;
     top: 0;
-    padding: 10px
+    position:absolute;
+    padding-right: 70em;
+
 }
