@@ -9,7 +9,7 @@ $(function () {
         $(".newslist").empty();
         $.ajax({
             method: 'GET',
-            url: 'https://api.nytimes.com/svc/topstories/v2/' + section + '.json?api-key=VsdoBq4dhdB6ezdvVKAkPpWGzWXMKG35',
+            url: 'https://api.nytimes.com/svc/topstories/v2/' + section + '.json?api-key=PlBtn32fNjrMCvSrXoIe372dvTolGi8m',
             datatype: 'json'
         }).done(function(data) {
             let results = data.results.slice(0,12)
