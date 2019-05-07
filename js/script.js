@@ -12,7 +12,9 @@ $(function () {
             url: 'https://api.nytimes.com/svc/topstories/v2/' + section + '.json?api-key=PlBtn32fNjrMCvSrXoIe372dvTolGi8m',
             datatype: 'json'
         }).done(function(data) {
+            
             let results = data.results.slice(0,12)
+            console.log(results);
             
             $.each(results,function(key,value){
                 link=value.url;
