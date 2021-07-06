@@ -5,12 +5,16 @@ $(function () {
         $('header').addClass("second-header");
         $('.content').before('<div class="loading"><img src="assets/images/ajax-loader.gif"></div>');
 
+
+        $(".newslist").empty();
         $.ajax({
             method: 'GET',
-            url: 'https://api.nytimes.com/svc/topstories/v2/' + section + '.json?api-key=VsdoBq4dhdB6ezdvVKAkPpWGzWXMKG35',
+            url: 'https://api.nytimes.com/svc/topstories/v2/' + section + '.json?api-key=PlBtn32fNjrMCvSrXoIe372dvTolGi8m',
             datatype: 'json'
         }).done(function(data) {
+            
             let results = data.results.slice(0,12)
+            console.log(results);
             
             $.each(results,function(key,value){
                 link=value.url;
